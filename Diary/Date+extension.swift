@@ -35,9 +35,6 @@ extension TimeInterval {
     let components = calendar.dateComponents([.hour, .minute], from: date)
     guard let hour = components.hour,
           let minute = components.minute else { return "" }
-//    if minute >= 0 && minute < 10 {
-//      minuteStr = ""
-//    }
     var minuteStr = ""
     switch minute {
     case 0:
@@ -49,6 +46,5 @@ extension TimeInterval {
     }
     
     return "\(hour):\(minuteStr)"
-//    return "\(hour):\(minute == 0 ? "00" : String(minute))"
   }
 }
