@@ -119,13 +119,14 @@ extension DiaryViewController: UITableViewDataSource, UITableViewDelegate {
 //    }
 //  }
   
-  func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-    if workingHours?.hours[indexPath.row].task != nil {
-      return true
-    } else {
-      return false
-    }
-  }
+//  func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+//    if workingHours?.hours[indexPath.row].task != nil {
+//      return true
+//    } else {
+//      return false
+//    }
+//  }
+  
   func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
     return 50
   }

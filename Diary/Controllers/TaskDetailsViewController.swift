@@ -125,7 +125,7 @@ class TaskDetailsViewController: UITableViewController {
     saveButton.setTitleTextAttributes([.foregroundColor: UIColor(red: 211/255, green: 253/255, blue: 253/255, alpha: 0.5), .font: UIFont(name: "MarkerFelt-Wide", size: 20)!], for: .disabled)
     
     cancelButton.setTitleTextAttributes(navButtonsTextAttributes, for: .normal)
-    cancelButton.setTitleTextAttributes(navButtonsTextAttributes, for: .normal)
+//    cancelButton.setTitleTextAttributes(navButtonsTextAttributes, for: .normal)
     
   }
   

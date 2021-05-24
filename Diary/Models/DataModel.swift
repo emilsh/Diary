@@ -12,7 +12,7 @@ class DataModel {
   
   static let shared = DataModel()
   
-  let realm: Realm
+  private let realm: Realm
   
   private init() {
     realm = try! Realm()
