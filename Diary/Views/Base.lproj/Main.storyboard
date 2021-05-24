@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="3TV-5l-wDJ">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Ежедневник-->
+        <scene sceneID="lNP-Qs-6Z5">
+            <objects>
+                <viewController id="R7p-QJ-UW7" customClass="DiaryViewController" customModule="Diary" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="f1J-BN-tlQ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="uui-f9-ePS">
+                                <rect key="frame" x="0.0" y="101" width="375" height="566"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TaskCell" id="hKg-4n-8CQ" customClass="TaskCell" customModule="Diary" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="24.5" width="375" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="hKg-4n-8CQ" id="Cdq-BF-6qR">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="qnb-pw-VS2" kind="show" identifier="ShowTask" id="Gf0-JL-0vn"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" style="compact" translatesAutoresizingMaskIntoConstraints="NO" id="ngd-Ac-OSe">
+                                <rect key="frame" x="16" y="44" width="343" height="49"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="49" id="SBl-kS-ZTQ"/>
+                                </constraints>
+                                <connections>
+                                    <action selector="dateChanged:" destination="R7p-QJ-UW7" eventType="valueChanged" id="IbE-oF-SPx"/>
+                                </connections>
+                            </datePicker>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="auo-hG-ptu"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="auo-hG-ptu" firstAttribute="trailing" secondItem="ngd-Ac-OSe" secondAttribute="trailing" constant="16" id="0wH-69-odP"/>
+                            <constraint firstItem="uui-f9-ePS" firstAttribute="bottom" secondItem="auo-hG-ptu" secondAttribute="bottom" id="Bg5-lM-zbV"/>
+                            <constraint firstItem="uui-f9-ePS" firstAttribute="trailing" secondItem="auo-hG-ptu" secondAttribute="trailing" id="KwL-JG-BE6"/>
+                            <constraint firstItem="uui-f9-ePS" firstAttribute="leading" secondItem="auo-hG-ptu" secondAttribute="leading" id="MuC-J3-tNf"/>
+                            <constraint firstItem="uui-f9-ePS" firstAttribute="top" secondItem="ngd-Ac-OSe" secondAttribute="bottom" constant="8" symbolic="YES" id="jbC-SC-K5K"/>
+                            <constraint firstItem="ngd-Ac-OSe" firstAttribute="top" secondItem="auo-hG-ptu" secondAttribute="top" id="qah-09-RjH"/>
+                            <constraint firstItem="ngd-Ac-OSe" firstAttribute="leading" secondItem="auo-hG-ptu" secondAttribute="leading" constant="16" id="ujx-da-2fQ"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Ежедневник" id="uZI-Kc-Dwv">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="ziV-s7-Mql">
+                            <color key="tintColor" red="0.82745098039215681" green="0.99215686274509807" blue="0.99215686274509807" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="addButtonTapped:" destination="R7p-QJ-UW7" id="bBn-lX-g4e"/>
+                                <segue destination="qnb-pw-VS2" kind="show" identifier="AddTask" id="LoM-VB-uQB"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="datePicker" destination="ngd-Ac-OSe" id="U6C-7p-nyO"/>
+                        <outlet property="tableView" destination="uui-f9-ePS" id="M6y-Ej-WHU"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hNw-Qf-cnR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3952.8000000000002" y="791.15442278860576"/>
+        </scene>
+        <!--Task Details View Controller-->
+        <scene sceneID="PGX-8M-rCw">
+            <objects>
+                <tableViewController id="qnb-pw-VS2" customClass="TaskDetailsViewController" customModule="Diary" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="xkf-vD-tC3">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <sections>
+                            <tableViewSection headerTitle="Задача" id="0Vy-sQ-Kuh">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="UHq-uj-OQz">
+                                        <rect key="frame" x="0.0" y="49.5" width="375" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="UHq-uj-OQz" id="V4E-aJ-rV2">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Введите имя задачи" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qlu-rg-z78">
+                                                    <rect key="frame" x="16" y="5" width="343" height="34.5"/>
+                                                    <color key="textColor" red="0.33333333329999998" green="0.68627450980000004" blue="0.81568627449999997" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="17"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="qlu-rg-z78" firstAttribute="top" secondItem="V4E-aJ-rV2" secondAttribute="top" constant="5" id="G0I-ru-GGC"/>
+                                                <constraint firstAttribute="trailing" secondItem="qlu-rg-z78" secondAttribute="trailing" constant="16" id="Xjj-Uk-S4g"/>
+                                                <constraint firstAttribute="bottom" secondItem="qlu-rg-z78" secondAttribute="bottom" constant="4.5" id="acU-Lq-Xi7"/>
+                                                <constraint firstItem="qlu-rg-z78" firstAttribute="leading" secondItem="V4E-aJ-rV2" secondAttribute="leading" constant="16" id="ceL-hi-yJC"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection headerTitle="Описание" id="yO0-vy-QHM">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="108" id="WmJ-0R-5Fv">
+                                        <rect key="frame" x="0.0" y="143" width="375" height="108"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="WmJ-0R-5Fv" id="PRX-Mq-hgt">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="108"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="KPu-kf-SJ9">
+                                                    <rect key="frame" x="16" y="11" width="343" height="86"/>
+                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                    <color key="textColor" red="0.33333333329999998" green="0.68627450980000004" blue="0.81568627449999997" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="15"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                </textView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="KPu-kf-SJ9" firstAttribute="bottom" secondItem="PRX-Mq-hgt" secondAttribute="bottomMargin" id="0B9-L9-Mi1"/>
+                                                <constraint firstItem="KPu-kf-SJ9" firstAttribute="leading" secondItem="PRX-Mq-hgt" secondAttribute="leadingMargin" id="AbK-53-oWW"/>
+                                                <constraint firstItem="KPu-kf-SJ9" firstAttribute="trailing" secondItem="PRX-Mq-hgt" secondAttribute="trailingMargin" id="tgI-yi-Hbi"/>
+                                                <constraint firstItem="KPu-kf-SJ9" firstAttribute="top" secondItem="PRX-Mq-hgt" secondAttribute="topMargin" id="v2D-HW-Vu9"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection headerTitle="Время" id="dbV-ZY-emv">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="sk3-32-2MW">
+                                        <rect key="frame" x="0.0" y="301" width="375" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="sk3-32-2MW" id="kxu-Oc-j0E">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Начало" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UL8-1m-MR6">
+                                                    <rect key="frame" x="16" y="11" width="49.5" height="21"/>
+                                                    <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="17"/>
+                                                    <color key="textColor" red="0.33333333333333331" green="0.68627450980392157" blue="0.81568627450980391" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <datePicker contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="15" style="compact" translatesAutoresizingMaskIntoConstraints="NO" id="qAE-2C-JaX">
+                                                    <rect key="frame" x="138" y="0.0" width="229" height="44"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="229" id="UTA-5K-Dj7"/>
+                                                    </constraints>
+                                                </datePicker>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="qAE-2C-JaX" secondAttribute="bottom" constant="-0.5" id="6ll-Br-2bD"/>
+                                                <constraint firstAttribute="trailing" secondItem="qAE-2C-JaX" secondAttribute="trailing" constant="8" id="M8n-Oc-6Nu"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="UL8-1m-MR6" secondAttribute="bottom" constant="0.5" id="Pqa-0y-Nn4"/>
+                                                <constraint firstItem="UL8-1m-MR6" firstAttribute="top" secondItem="kxu-Oc-j0E" secondAttribute="topMargin" id="RaP-AO-EYB"/>
+                                                <constraint firstItem="qAE-2C-JaX" firstAttribute="top" secondItem="kxu-Oc-j0E" secondAttribute="top" id="m1J-yE-hzG"/>
+                                                <constraint firstItem="qAE-2C-JaX" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="UL8-1m-MR6" secondAttribute="trailing" constant="63" id="rqg-0V-WHQ"/>
+                                                <constraint firstItem="UL8-1m-MR6" firstAttribute="leading" secondItem="kxu-Oc-j0E" secondAttribute="leadingMargin" id="u6k-zN-WG2"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="ExB-Sd-ZAK">
+                                        <rect key="frame" x="0.0" y="344.5" width="375" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ExB-Sd-ZAK" id="oBE-Q0-yIp">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="15" style="compact" translatesAutoresizingMaskIntoConstraints="NO" id="cBn-GK-A64">
+                                                    <rect key="frame" x="138" y="-1" width="229" height="44"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="229" id="6Wi-3N-f7I"/>
+                                                    </constraints>
+                                                </datePicker>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Завершение" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BY4-vp-acD">
+                                                    <rect key="frame" x="16" y="11" width="84.5" height="21"/>
+                                                    <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="17"/>
+                                                    <color key="textColor" red="0.33333333329999998" green="0.68627450980000004" blue="0.81568627449999997" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="cBn-GK-A64" secondAttribute="trailing" constant="8" id="1dD-dx-Lob"/>
+                                                <constraint firstItem="cBn-GK-A64" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="BY4-vp-acD" secondAttribute="trailing" constant="22.5" id="DdM-3C-h6v"/>
+                                                <constraint firstItem="BY4-vp-acD" firstAttribute="leading" secondItem="oBE-Q0-yIp" secondAttribute="leadingMargin" id="LbB-uZ-OK4"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="BY4-vp-acD" secondAttribute="bottom" constant="0.5" id="Qao-Sz-RgR"/>
+                                                <constraint firstAttribute="bottom" secondItem="cBn-GK-A64" secondAttribute="bottom" constant="0.5" id="cZt-5Y-eoM"/>
+                                                <constraint firstItem="BY4-vp-acD" firstAttribute="top" secondItem="oBE-Q0-yIp" secondAttribute="topMargin" id="jnT-Yu-Gje"/>
+                                                <constraint firstItem="cBn-GK-A64" firstAttribute="top" secondItem="oBE-Q0-yIp" secondAttribute="top" constant="-1" id="wbL-dz-Hv4"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection id="mLY-r6-GTS">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="46" id="KC0-ej-g2y">
+                                        <rect key="frame" x="0.0" y="424" width="375" height="46"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="KC0-ej-g2y" id="J7B-s5-sZP">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="46"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qcz-q7-nYj">
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="46"/>
+                                                    <color key="backgroundColor" systemColor="systemRedColor"/>
+                                                    <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="17"/>
+                                                    <state key="normal" title="Удалить задачу">
+                                                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="removeButtonTapped:" destination="qnb-pw-VS2" eventType="touchUpInside" id="HoT-Af-bIR"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="qcz-q7-nYj" firstAttribute="top" secondItem="J7B-s5-sZP" secondAttribute="top" id="WEc-0Y-10J"/>
+                                                <constraint firstAttribute="trailing" secondItem="qcz-q7-nYj" secondAttribute="trailing" id="Xrf-u6-zWQ"/>
+                                                <constraint firstItem="qcz-q7-nYj" firstAttribute="leading" secondItem="J7B-s5-sZP" secondAttribute="leading" id="nSa-jo-i8g"/>
+                                                <constraint firstAttribute="bottom" secondItem="qcz-q7-nYj" secondAttribute="bottom" id="tAw-Gh-clH"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="qnb-pw-VS2" id="34X-Qa-dyn"/>
+                            <outlet property="delegate" destination="qnb-pw-VS2" id="3UR-1J-tay"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="v1A-4p-eDZ">
+                        <barButtonItem key="backBarButtonItem" title="Назад" id="FqF-gv-XQD"/>
+                        <barButtonItem key="leftBarButtonItem" title="Назад" id="jqv-9x-UPy">
+                            <color key="tintColor" red="0.82745098039999998" green="0.99215686270000003" blue="0.99215686270000003" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="cancelButtonTapped:" destination="qnb-pw-VS2" id="k9S-oy-JuP"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Добавить" style="done" id="cnu-gF-x3c">
+                            <color key="tintColor" red="0.82745098039999998" green="0.99215686270000003" blue="0.99215686270000003" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="saveButtonTapped:" destination="qnb-pw-VS2" id="1m9-Td-xBd"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="cancelButton" destination="jqv-9x-UPy" id="Azd-j9-KZ3"/>
+                        <outlet property="descriptionTextView" destination="KPu-kf-SJ9" id="T7N-Hf-HSj"/>
+                        <outlet property="endDatePicker" destination="cBn-GK-A64" id="i5M-pJ-Rhn"/>
+                        <outlet property="nameTextField" destination="qlu-rg-z78" id="xEp-dI-kLc"/>
+                        <outlet property="removeButton" destination="qcz-q7-nYj" id="PNt-mp-MDk"/>
+                        <outlet property="saveButton" destination="cnu-gF-x3c" id="p5b-42-zjV"/>
+                        <outlet property="startDatePicker" destination="qAE-2C-JaX" id="7s0-a1-oJW"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6ht-qg-Uo2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4759.1999999999998" y="789.35532233883066"/>
+        </scene>
+        <!--Diary-->
+        <scene sceneID="8bn-r1-Wly">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="3TV-5l-wDJ" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Diary" image="book" catalog="system" selectedImage="book" id="UWT-QH-Idr">
+                        <color key="badgeColor" red="0.33333333329999998" green="0.68627450980000004" blue="0.81568627449999997" alpha="1" colorSpace="calibratedRGB"/>
+                    </tabBarItem>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="iOt-VO-yf6">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.33333333329999998" green="0.68627450980000004" blue="0.81568627449999997" alpha="1" colorSpace="calibratedRGB"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="R7p-QJ-UW7" kind="relationship" relationship="rootViewController" id="4bT-oJ-lKQ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="A3J-1j-MJg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3012" y="790.25487256371821"/>
+        </scene>
+    </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="LoM-VB-uQB"/>
+    </inferredMetricsTieBreakers>
+    <color key="tintColor" red="0.33333333333333331" green="0.68627450980392157" blue="0.81568627450980391" alpha="1" colorSpace="calibratedRGB"/>
+    <resources>
+        <image name="book" catalog="system" width="128" height="102"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
