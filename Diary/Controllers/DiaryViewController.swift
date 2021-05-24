@@ -104,29 +104,6 @@ extension DiaryViewController: UITableViewDataSource, UITableViewDelegate {
     tableView.deselectRow(at: indexPath, animated: true)
   }
   
-//  func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-//    if let task = workingHours?.hours[indexPath.row].task {
-//      guard let index = dailyTasks.firstIndex(of: task) else { return }
-//      dailyTasks.remove(at: index)
-//      dataModel.removeTask(task)
-//      workingHours?.hours[indexPath.row].task = nil
-//
-//      //I did this for leaving deletion animation
-//      let workHour = workingHours?.hours.remove(at: indexPath.row)
-//      tableView.deleteRows(at: [indexPath], with: .fade)
-//      workingHours?.hours.insert(workHour!, at: indexPath.row)
-//      tableView.insertRows(at: [indexPath], with: .none)
-//    }
-//  }
-  
-//  func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-//    if workingHours?.hours[indexPath.row].task != nil {
-//      return true
-//    } else {
-//      return false
-//    }
-//  }
-  
   func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
     return 50
   }

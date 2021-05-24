@@ -15,7 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
     // Override point for customization after application launch.
     
-    print(FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]) //path to default.realm file
+//    print(FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]) //path to default.realm file
     return true
   }
 
