@@ -45,6 +45,20 @@ class DateTests: XCTestCase {
     XCTAssertEqual(hourInterval.end.timeIntervalSince1970, 1621476000)
   }
 
+  func testDateIntervalWithTimeIntervals() {
+    let dateInterval = DateInterval(start: 0, finish: 3600)
+    
+    let date1 = Date(timeIntervalSince1970: 0)
+    let date2 = Date(timeIntervalSince1970: 3600)
+    let dateInterval2 = DateInterval(start: date1, end: date2)
+    
+    XCTAssertEqual(dateInterval, dateInterval2)
+  }
 
+  func testTimeFromTimeInterval() {
+    let timeInterval = TimeInterval(3600)
+    
+    XCTAssertEqual(timeInterval.timeFromTimeInterval(), "7:00")
+  }
 
 }
